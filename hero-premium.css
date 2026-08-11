@@ -283,3 +283,10 @@
 .mini-photo img { object-position: 50% 62%; }
 .appointment-image img { object-position: 66% center; }
 .faq-photo img { object-position: 50% center; }
+/* Full-bleed hero: image reaches both viewport edges. */
+.hero-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+}
