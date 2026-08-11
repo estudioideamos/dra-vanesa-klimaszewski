@@ -16,7 +16,7 @@
 }
 
 .hero-shell {
-  min-height: 730px;
+  min-height: 680px;
   isolation: isolate;
   background: #77766e;
   box-shadow: 0 28px 90px rgba(40, 42, 35, .18);
@@ -72,8 +72,9 @@
 
 .hero-content {
   z-index: 3;
-  min-height: 730px;
+  min-height: 680px;
   padding-block: 38px 45px;
+  justify-content: flex-start;
 }
 .hero-topline { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
 .hero-proof {
@@ -115,7 +116,12 @@
 .hero-availability small { color: rgba(255,255,255,.55); font-size: 8px; letter-spacing: .09em; text-transform: uppercase; }
 .hero-availability strong { margin-top: 2px; font-size: 10px; font-weight: 500; }
 
-.hero-bottom { grid-template-columns: minmax(0, 1.12fr) minmax(310px, .62fr); gap: 76px; }
+.hero-bottom {
+  margin-top: clamp(72px, 9vh, 105px);
+  grid-template-columns: minmax(0, 1.12fr) minmax(310px, .62fr);
+  align-items: center;
+  gap: 76px;
+}
 .hero-heading { position: relative; padding-left: 24px; }
 .hero-heading::before {
   content: "";
@@ -130,7 +136,7 @@
   max-width: 650px;
   margin-top: 15px;
   font-family: var(--display);
-  font-size: clamp(51px, 4.7vw, 68px);
+  font-size: clamp(49px, 4.35vw, 63px);
   font-weight: 400;
   line-height: .98;
   letter-spacing: -.04em;
@@ -182,8 +188,8 @@
 @keyframes orbitFloat { 50% { transform: translate3d(0,-10px,0) rotate(2deg); } }
 
 @media (max-width: 1050px) {
-  .hero-bottom { grid-template-columns: 1fr .72fr; gap: 42px; }
-  .hero h1 { font-size: 58px; }
+  .hero-bottom { margin-top: 72px; grid-template-columns: 1fr .72fr; gap: 42px; }
+  .hero h1 { font-size: 54px; }
   .hero-scroll { display: none; }
 }
 
@@ -201,7 +207,7 @@
   .hero-orbit-two { display: none; }
   .hero-availability { display: none; }
   .hero-proof { width: min(100%, 305px); }
-  .hero-bottom { grid-template-columns: 1fr; gap: 20px; }
+  .hero-bottom { margin-top: auto; grid-template-columns: 1fr; gap: 20px; }
   .hero-heading { padding-left: 16px; }
   .hero h1 { max-width: 540px; font-size: clamp(39px, 10.5vw, 50px); }
   .hero-signature { margin-top: 16px; flex-wrap: wrap; }
