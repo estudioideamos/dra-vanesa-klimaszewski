@@ -254,3 +254,12 @@
   .hero-availability[data-reveal],
   .hero-doctor-label[data-reveal] { animation: none; }
 }
+/* Keep the premium first viewport complete even when motion is blocked. */
+.hero-media img,
+.hero-copy[data-reveal],
+.hero-availability[data-reveal],
+.hero-doctor-label[data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
