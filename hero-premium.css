@@ -290,3 +290,15 @@
   margin: 0;
   border-radius: 0;
 }
+/* Complete surname in the primary brand lockup. */
+.header-inner > .brand .brand-text strong { white-space: nowrap; }
+@media (max-width: 1050px) {
+  .header-inner > .brand .brand-text strong { font-size: 13px; }
+}
+@media (max-width: 800px) {
+  .header-inner { gap: 14px; }
+  .header-inner > .brand .brand-text strong { font-size: 11px; }
+}
+@media (max-width: 480px) {
+  .header-inner > .brand .brand-text small { display: none; }
+}
