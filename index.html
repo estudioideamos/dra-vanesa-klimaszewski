@@ -216,17 +216,50 @@
     </section>
 
     <section class="contact-section" id="contacto">
-      <div class="container contact-card">
+      <div class="container contact-card contact-card-with-form">
         <div class="contact-copy" data-reveal>
           <div class="eyebrow light"><span></span> Contacto</div>
           <h2>Tu salud merece tiempo, escucha y continuidad</h2>
-          <a class="button button-accent" href="https://wa.me/5491137305610?text=Hola%20Dra.%20Vanesa%2C%20quisiera%20consultar%20por%20un%20turno." target="_blank" rel="noreferrer">Pedir un turno <i data-lucide="arrow-up-right"></i></a>
-          <small>Atención por mensajes · No se reciben llamados</small>
+          <p>Contame brevemente qu&eacute; necesit&aacute;s para que la doctora pueda responder tu consulta.</p>
+          <small>La informaci&oacute;n se enviar&aacute; por email &middot; No se reciben llamados</small>
         </div>
+
+        <div class="contact-form-panel" data-reveal>
+          <div class="form-heading">
+            <span><i data-lucide="mail-plus"></i></span>
+            <div><small>Formulario de contacto</small><strong>Escribile a la doctora</strong></div>
+          </div>
+          <form class="contact-form" id="contact-form" action="mailto:klivanedoc@gmail.com" method="post" enctype="text/plain">
+            <div class="form-grid">
+              <label>Nombre y apellido<input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required></label>
+              <label>Email<input type="email" name="email" autocomplete="email" placeholder="nombre@email.com" required></label>
+              <label>Tel&eacute;fono<input type="tel" name="telefono" autocomplete="tel" placeholder="11 0000 0000" required></label>
+              <label>Motivo de consulta
+                <select name="motivo" required>
+                  <option value="" selected disabled>Seleccion&aacute; una opci&oacute;n</option>
+                  <option>Medicina familiar</option>
+                  <option>Diabetes</option>
+                  <option>PAMI</option>
+                  <option>Videoconsulta</option>
+                  <option>Domicilio en Tigre</option>
+                  <option>Otra consulta</option>
+                </select>
+              </label>
+              <label class="field-full">Mensaje<textarea name="mensaje" rows="4" placeholder="Contanos brevemente el motivo de tu consulta" required></textarea></label>
+            </div>
+            <label class="form-consent"><input type="checkbox" name="consentimiento" required><span>Acepto que estos datos se env&iacute;en por email para responder mi consulta.</span></label>
+            <div class="form-submit-row">
+              <button class="button button-accent form-submit" type="submit">Enviar por email <i data-lucide="send"></i></button>
+              <small>Se abrir&aacute; tu aplicaci&oacute;n de correo con el mensaje preparado.</small>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
         <div class="contact-info" data-reveal>
-          <a href="https://maps.google.com/?q=Caracas+1480+Rincon+de+Milberg+Tigre" target="_blank" rel="noreferrer"><span><i data-lucide="map-pin"></i></span><div><small>Consultorio</small><strong>Caracas 1480, Rincón de Milberg<br>Tigre, Buenos Aires</strong></div></a>
+          <a href="https://maps.google.com/?q=Caracas+1480+Rincon+de+Milberg+Tigre" target="_blank" rel="noreferrer"><span><i data-lucide="map-pin"></i></span><div><small>Consultorio</small><strong>Caracas 1480, Rinc&oacute;n de Milberg<br>Tigre, Buenos Aires</strong></div></a>
           <a href="mailto:klivanedoc@gmail.com"><span><i data-lucide="mail"></i></span><div><small>Email</small><strong>klivanedoc@gmail.com</strong></div></a>
-          <div><span><i data-lucide="clock-3"></i></span><div><small>Modalidad</small><strong>Atención con turno programado</strong></div></div>
+          <div><span><i data-lucide="clock-3"></i></span><div><small>Modalidad</small><strong>Atenci&oacute;n con turno programado</strong></div></div>
         </div>
       </div>
     </section>

@@ -46,4 +46,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
+
+  const contactForm = document.querySelector("#contact-form");
+  contactForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+
+    const data = new FormData(contactForm);
+    const subject = `Consulta web - ${data.get("motivo")} - ${data.get("nombre")}`;
+    const body = [
+      "Hola Dra. Vanesa, quisiera realizar una consulta.",
+      "",
+      `Nombre: ${data.get("nombre")}`,
+      `Email: ${data.get("email")}`,
+      `Telefono: ${data.get("telefono")}`,
+      `Motivo: ${data.get("motivo")}`,
+      "",
+      `Mensaje: ${data.get("mensaje")}`,
+    ].join("\n");
+
+    const status = contactForm.querySelector(".form-status");
+    if (status) status.textContent = "Listo. Abrimos tu aplicacion de correo con la consulta preparada.";
+    window.location.href = `mailto:klivanedoc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
 });
