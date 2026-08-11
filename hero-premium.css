@@ -302,3 +302,10 @@
 @media (max-width: 480px) {
   .header-inner > .brand .brand-text small { display: none; }
 }
+/* User-provided official WhatsApp glyph. */
+.whatsapp-float img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
