@@ -263,3 +263,23 @@
   transform: none !important;
   animation: none !important;
 }
+/* Bespoke VK mark and distinct editorial image crops. */
+.brand-symbol-image,
+.doctor-mark {
+  padding: 0;
+  overflow: hidden;
+  background: var(--primary);
+}
+.brand-symbol-image img,
+.doctor-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.collage-main img { object-position: 57% center; }
+.collage-small img { object-position: 51% center; }
+.why-image img { object-position: 43% center; }
+.mini-photo img { object-position: 50% 62%; }
+.appointment-image img { object-position: 66% center; }
+.faq-photo img { object-position: 50% center; }
