@@ -463,3 +463,26 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 .hero-real-photo .hero-copy{width:min(560px,46%)}
 @media(max-width:800px){.hero-real-photo .hero-copy{width:100%}.hero-real-photo .hero-picture{height:52%;background:#eef2eb}.hero-real-photo .hero-picture img{object-fit:contain;object-position:center bottom;transform:none;filter:none}}
 @media(max-width:800px){.hero.hero-real-photo::after{background:linear-gradient(180deg,#f4f7ef 0%,#f4f7ef 45%,rgba(244,247,239,.94) 50%,rgba(244,247,239,.52) 59%,rgba(244,247,239,0) 70%)}}
+
+/* Contact journey and section hierarchy */
+.contact-bridge{padding:34px 0;background:#f4f7ef}
+.contact-bridge-inner{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 48px;align-items:center;padding:38px 42px;border:1px solid rgba(255,255,255,.1);border-radius:30px;background:linear-gradient(125deg,#0b342e,#123f37 68%,#1b4b40);color:#fff;box-shadow:0 24px 65px rgba(11,52,46,.16)}
+.contact-bridge-inner::before{content:"";position:absolute;z-index:-1;right:-65px;top:-120px;width:290px;height:290px;border-radius:50%;background:radial-gradient(circle,rgba(189,247,90,.22),rgba(189,247,90,0) 68%)}
+.contact-bridge-copy>span{display:block;margin-bottom:7px;color:var(--lime);font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.contact-bridge-copy h2{margin:0 0 7px;font-family:var(--serif);font-size:clamp(28px,3vw,42px);font-weight:400;line-height:1.02;letter-spacing:-.025em}
+.contact-bridge-copy p{max-width:650px;margin:0;color:rgba(255,255,255,.68);font-size:12px}
+.contact-bridge-button{min-width:176px;justify-content:center;background:var(--lime);color:var(--ink);box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.contact-bridge-button:hover{background:#fff}
+.contact-bridge-button svg{transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.contact-bridge-button:hover svg{transform:rotate(10deg) translate(2px,-2px)}
+.contact-bridge-details{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+.contact-bridge-details span{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.74);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.contact-bridge-details svg{width:14px;color:var(--lime)}
+.appointment{scroll-margin-top:86px;background:radial-gradient(circle at 88% 8%,rgba(189,247,90,.2),transparent 24%),linear-gradient(180deg,#eef4ea,#fff 32%)}
+.appointment-heading{display:grid;grid-template-columns:1.2fr .7fr;gap:70px;align-items:end;text-align:left}
+.appointment-heading .section-label{justify-content:flex-start}
+.appointment-heading h2{margin-bottom:0}
+.appointment-intro{max-width:460px;margin:0 0 5px;color:var(--muted);font-size:13px;line-height:1.75}
+.appointment-grid{border:1px solid rgba(22,54,49,.08);box-shadow:0 34px 90px rgba(22,54,49,.14)}
+@media(max-width:800px){.contact-bridge{padding:25px 0}.contact-bridge-inner{grid-template-columns:1fr;padding:32px}.contact-bridge-button{justify-self:start}.appointment-heading{grid-template-columns:1fr;gap:18px}.appointment-intro{max-width:600px}.appointment{scroll-margin-top:70px}}
+@media(max-width:560px){.contact-bridge-inner{padding:28px 22px;border-radius:24px}.contact-bridge-copy h2{font-size:31px}.contact-bridge-button{width:100%}.contact-bridge-details{gap:10px 16px}.appointment-intro{font-size:12px}}
