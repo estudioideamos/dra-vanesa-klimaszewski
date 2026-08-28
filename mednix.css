@@ -120,7 +120,7 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
     box-shadow:0 24px 60px rgba(0,0,0,.25)!important
   }
   .premium-footer .footer-action::before{
-    content:\ \;
+    content:attr(data-reveal);
     position:absolute;
     inset:0 14% auto;
     height:1px;
@@ -173,7 +173,7 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
   }
   .premium-footer .footer-main>div::before,
   .premium-footer .footer-main>nav::before{
-    content:\\;
+    content:attr(data-reveal);
     position:absolute;
     left:50%;
     top:0;
