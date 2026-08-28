@@ -16,3 +16,23 @@
 .article-contact p,.source-list a{font-size:13px}
 .article-contact a{font-size:12px}
 @media(max-width:600px){.article-brand small{font-size:8px}.article-nav .article-cta{font-size:11px}.article-deck{font-size:16px}.article-copy p{font-size:16px;line-height:1.72}.article-contact p{font-size:14px}}
+/* Article typography and contrast audit */
+.article-brand small{color:#5e706a;font-size:10px}
+.article-kicker{font-size:12px}
+.article-deck{color:rgba(255,255,255,.84)}
+.article-meta{color:rgba(255,255,255,.78);font-size:12px}
+.article-copy p,.article-copy li{font-size:17px;line-height:1.75}
+.article-note strong{font-size:12px}
+.article-note p{color:rgba(255,255,255,.9);font-size:16px}
+.article-index span,.article-contact span,.related-card small{font-size:11px}
+.article-index a{font-size:14px}
+.article-contact p{font-size:14px;line-height:1.65}
+.article-contact a{font-size:13px}
+.source-list a{font-size:14px;line-height:1.5}
+@media(max-width:600px){
+  .article-brand strong{font-size:13px}
+  .article-brand small{font-size:10px}
+  .article-nav .article-cta{font-size:12px}
+  .article-deck{font-size:16px}
+  .article-copy p,.article-copy li{font-size:16px;line-height:1.75}
+}
