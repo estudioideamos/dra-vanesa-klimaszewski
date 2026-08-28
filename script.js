@@ -3,9 +3,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".main-nav");
   const openButton = document.querySelector(".menu-toggle");
-  const closeMenu = () => { nav?.classList.remove("is-open"); openButton?.setAttribute("aria-expanded", "false"); document.body.style.overflow = ""; };
-  openButton?.addEventListener("click", () => { nav?.classList.add("is-open"); openButton.setAttribute("aria-expanded", "true"); document.body.style.overflow = "hidden"; });
-  document.querySelector(".menu-close")?.addEventListener("click", closeMenu);
+  let closeTimer;
+  const closeMenu = () => {
+    if (!nav?.classList.contains("is-open")) return;
+    window.clearTimeout(closeTimer);
+    nav.classList.remove("is-open");
+    nav.classList.add("is-closing");
+    openButton?.classList.remove("is-open");
+    openButton?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+    closeTimer = window.setTimeout(() => { nav.classList.remove("is-closing"); document.body.style.overflow = ""; }, 580);
+  };
+  openButton?.addEventListener("click", () => {
+    if (nav?.classList.contains("is-open")) { closeMenu(); return; }
+    window.clearTimeout(closeTimer);
+    nav?.classList.remove("is-closing");
+    nav?.classList.add("is-open");
+    openButton.classList.add("is-open");
+    openButton.setAttribute("aria-expanded", "true");
+    document.body.classList.add("menu-open");
+    document.body.style.overflow = "hidden";
+  });
   document.querySelectorAll(".main-nav a").forEach(link => link.addEventListener("click", closeMenu));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
   const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 126);
