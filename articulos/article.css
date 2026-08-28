@@ -6,7 +6,3 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.related-card,.source-list a{transition:none}}
 /* Full-bleed article media */
 @media(min-width:901px){.article-hero-media{margin-right:calc((100vw - min(1180px, calc(100vw - 40px)))/-2)}}
-
-/* Closer portrait framing for doctor-led article images */
-.article-hero-media img[src*="vanesa-"]{object-position:50% 20%;transform:scale(1.18);transform-origin:50% 22%}
-@media(max-width:900px){.article-hero-media img[src*="vanesa-"]{object-position:50% 18%;transform:scale(1.24);transform-origin:50% 20%}}
