@@ -44,3 +44,17 @@
 
 /* Stronger doctor name in article headers */
 .article-brand strong{font-weight:800}
+
+/* Final article subtitle visibility adjustment */
+.article-brand small{
+  color:#344b45;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.075em
+}
+@media(max-width:600px){
+  .article-brand small{
+    font-size:10px;
+    letter-spacing:.055em
+  }
+}

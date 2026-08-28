@@ -624,3 +624,29 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 
 /* Stronger doctor name in brand lockups */
 .site-header .brand strong,.premium-footer .premium-brand .brand strong,.mobile-menu-brand strong{font-weight:800!important}
+
+/* Final subtitle visibility adjustment */
+.site-header .brand small,
+.premium-footer .premium-brand .brand small{
+  color:#344b45!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  letter-spacing:.075em!important
+}
+.premium-footer .premium-brand .brand small{
+  color:#d4dfdc!important
+}
+.mobile-menu-brand small{
+  color:#b8cbc5!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  letter-spacing:.07em!important
+}
+@media(max-width:800px){
+  .site-header .brand small{
+    color:#405852!important;
+    font-size:10px!important;
+    font-weight:800!important;
+    letter-spacing:.055em!important
+  }
+}
