@@ -563,3 +563,6 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 @media(max-width:380px){
   .premium-footer .footer-bottom>.ideamos-credit,.premium-footer .footer-bottom>.ideamos-credit span,.premium-footer .footer-bottom>.ideamos-credit strong{font-size:10px!important;letter-spacing:0!important}
 }
+
+/* WhatsApp icon medallion inside the existing pill */
+.whatsapp-float img{box-sizing:border-box;width:36px;height:36px;padding:5px;border-radius:50%;background:#fff;box-shadow:0 3px 10px rgba(7,46,38,.16)}
