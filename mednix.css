@@ -379,3 +379,34 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
     text-align:center!important
   }
 }
+/* Stable header appointment button geometry */
+.header-cta{
+  box-sizing:border-box!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:0!important;
+  height:52px!important;
+  min-height:52px!important;
+  max-height:52px!important;
+  padding:6px 7px 6px 20px!important;
+  gap:13px!important;
+  border-radius:999px!important;
+  line-height:1!important;
+  white-space:nowrap!important
+}
+.header-cta>span{
+  display:block;
+  line-height:1!important
+}
+.header-cta>svg{
+  box-sizing:border-box!important;
+  flex:0 0 40px!important;
+  width:40px!important;
+  min-width:40px!important;
+  max-width:40px!important;
+  height:40px!important;
+  min-height:40px!important;
+  max-height:40px!important;
+  padding:11px!important;
+  border-radius:50%!important
+}
