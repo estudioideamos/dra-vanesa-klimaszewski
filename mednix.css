@@ -456,9 +456,10 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 
 /* Untouched real portrait: preserve the complete source image */
 .hero.hero-real-photo{background:#f4f7ef}
-.hero.hero-real-photo::after{display:none}
+.hero.hero-real-photo::after{display:block;background:linear-gradient(90deg,#f4f7ef 0%,#f4f7ef 43%,rgba(244,247,239,.96) 49%,rgba(244,247,239,.58) 57%,rgba(244,247,239,0) 67%)}
 .hero-real-photo .hero-picture{background:#f4f7ef}
 .hero-real-photo .hero-picture img{object-fit:contain;object-position:right center;transform:none;filter:none}
 .hero-real-photo .hero-float,.hero-real-photo .seal,.hero-real-photo .hero-orb{display:none}
 .hero-real-photo .hero-copy{width:min(560px,46%)}
 @media(max-width:800px){.hero-real-photo .hero-copy{width:100%}.hero-real-photo .hero-picture{height:52%;background:#eef2eb}.hero-real-photo .hero-picture img{object-fit:contain;object-position:center bottom;transform:none;filter:none}}
+@media(max-width:800px){.hero.hero-real-photo::after{background:linear-gradient(180deg,#f4f7ef 0%,#f4f7ef 45%,rgba(244,247,239,.94) 50%,rgba(244,247,239,.52) 59%,rgba(244,247,239,0) 70%)}}
