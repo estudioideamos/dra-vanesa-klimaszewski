@@ -41,3 +41,6 @@
 .article-brand span{min-width:0}
 .article-brand small{max-width:320px;font-size:11px;line-height:1.3;letter-spacing:.1em}
 @media(max-width:600px){.article-brand small{max-width:180px;font-size:10px;letter-spacing:.075em}}
+
+/* Stronger doctor name in article headers */
+.article-brand strong{font-weight:800}
