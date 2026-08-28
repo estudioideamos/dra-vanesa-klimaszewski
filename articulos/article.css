@@ -6,3 +6,13 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.related-card,.source-list a{transition:none}}
 /* Full-bleed article media */
 @media(min-width:901px){.article-hero-media{margin-right:calc((100vw - min(1180px, calc(100vw - 40px)))/-2)}}
+
+/* Article legibility pass */
+.article-brand small{font-size:10px}
+.article-kicker{font-size:11px}
+.article-meta{font-size:12px}
+.article-note strong{font-size:11px}
+.article-index span,.article-contact span,.related-card small{font-size:10px}
+.article-contact p,.source-list a{font-size:13px}
+.article-contact a{font-size:12px}
+@media(max-width:600px){.article-brand small{font-size:8px}.article-nav .article-cta{font-size:11px}.article-deck{font-size:16px}.article-copy p{font-size:16px;line-height:1.72}.article-contact p{font-size:14px}}
