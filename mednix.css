@@ -304,3 +304,78 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 @media(prefers-reduced-motion:reduce){
   .premium-footer .footer-action-button{animation:none!important}
 }
+/* Ideamos credit alignment and uppercase signature */
+.premium-footer .footer-bottom{
+  grid-template-columns:1fr auto!important;
+  align-items:center!important
+}
+.premium-footer .footer-bottom>p{
+  grid-column:1!important;
+  justify-self:start!important
+}
+.premium-footer .ideamos-credit{
+  grid-column:2!important;
+  justify-self:end!important;
+  min-height:34px!important;
+  padding:0!important;
+  gap:8px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#7f938d!important;
+  font-size:7px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important
+}
+.premium-footer .ideamos-credit span,
+.premium-footer .ideamos-credit strong{
+  color:inherit!important;
+  font-size:inherit!important;
+  font-weight:inherit!important;
+  line-height:inherit!important;
+  letter-spacing:inherit!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important
+}
+.premium-footer .ideamos-credit strong{
+  color:#d2ddd9!important;
+  font-weight:800!important
+}
+.premium-footer .ideamos-credit i{
+  flex:0 0 25px!important;
+  width:25px!important;
+  height:25px!important;
+  margin-left:2px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(200,245,109,.28)!important;
+  border-radius:50%!important;
+  background:rgba(200,245,109,.045)!important;
+  color:var(--lime)!important;
+  font-size:10px!important
+}
+.premium-footer .ideamos-credit:hover{
+  color:#9fb1ac!important;
+  transform:translateY(-2px)
+}
+.premium-footer .ideamos-credit:hover strong{color:var(--lime)!important}
+@media(max-width:800px){
+  .premium-footer .footer-bottom{
+    grid-template-columns:1fr!important;
+    justify-items:center!important
+  }
+  .premium-footer .footer-bottom>p{
+    grid-column:1!important;
+    grid-row:1!important;
+    justify-self:center!important
+  }
+  .premium-footer .ideamos-credit{
+    grid-column:1!important;
+    grid-row:2!important;
+    justify-self:center!important;
+    text-align:center!important
+  }
+}
