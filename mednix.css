@@ -523,3 +523,43 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 .footer-status,.premium-footer .footer-bottom p{font-size:9px}
 @media(max-width:800px){.appointment{padding-block:92px}.appointment-heading{gap:20px;margin-bottom:34px}.appointment-intro{font-size:14px}.brand small{font-size:8px}.button{font-size:12px}}
 @media(max-width:560px){.appointment{padding-block:76px}.appointment-heading h2{font-size:2.55rem}.appointment-intro{font-size:14px}.contact-aside{min-height:500px}.aside-content{inset:auto 22px 25px}.aside-content h3{font-size:31px}.form-panel{padding:31px 22px}.form-title{gap:12px;margin-bottom:29px}.form-title>span{width:50px;height:50px;flex-basis:50px}.form-title h3{font-size:31px}.form-note{font-size:10px;line-height:1.5;text-align:center}.service-card p{font-size:13px}.faq .faq-list summary{font-size:14px}.faq .faq-list details p{font-size:12px}}
+/* Clean contact title and readable footer */
+.form-title{align-items:center;margin-bottom:31px}
+.form-title>span{width:54px;height:54px;flex:0 0 54px}
+.form-title h3{margin-top:4px;font-size:clamp(29px,2.3vw,34px);font-weight:800;line-height:1.08;letter-spacing:-.035em}
+.premium-footer .footer-action-copy>p{color:#d2dfdb!important;font-size:15px!important;line-height:1.65!important}
+.premium-footer .footer-kicker{font-size:11px!important}
+.premium-footer .footer-action-button span{font-size:12px!important;line-height:1.35!important}
+.premium-footer .premium-brand .brand strong{font-size:15px!important}
+.premium-footer .premium-brand .brand small{color:#b5c5c0!important;font-size:10px!important}
+.premium-footer .footer-brand>p{color:#c4d2ce!important;font-size:15px!important;line-height:1.7!important}
+.premium-footer .footer-status{color:#cbd8d4!important;font-size:11px!important;line-height:1.35!important}
+.premium-footer .footer-column h3{font-size:12px!important;letter-spacing:.13em!important}
+.premium-footer .footer-column>a{min-height:42px!important;color:#d1ddda!important;font-size:14px!important;line-height:1.4!important}
+.premium-footer .footer-contact>a{min-height:58px!important}
+.premium-footer .footer-contact small{color:#9fb2ac!important;font-size:10px!important;line-height:1.35!important}
+.premium-footer .footer-signature p{color:#c8d5d1!important;font-size:18px!important}
+.premium-footer .footer-signature>a{font-size:11px!important}
+.premium-footer .footer-bottom>p{color:#aebfba!important;font-size:11px!important;line-height:1.5!important}
+.premium-footer .ideamos-credit,.premium-footer .ideamos-credit span{color:#aebfba!important;font-size:11px!important;line-height:1.35!important}
+.premium-footer .ideamos-credit strong{color:#f0f5f3!important;font-size:11px!important;line-height:1.35!important}
+.premium-footer .ideamos-credit i{flex-basis:25px!important;width:25px!important;height:25px!important;font-size:11px!important}
+@media(max-width:560px){
+  .form-title{align-items:center;margin-bottom:27px}
+  .form-title>span{width:48px;height:48px;flex-basis:48px}
+  .form-title h3{font-size:28px;line-height:1.1}
+  .premium-footer .footer-action-copy>p{font-size:14px!important}
+  .premium-footer .footer-kicker{font-size:10px!important}
+  .premium-footer .premium-brand .brand strong{font-size:14px!important}
+  .premium-footer .premium-brand .brand small{font-size:10px!important}
+  .premium-footer .footer-brand>p{font-size:14px!important}
+  .premium-footer .footer-status{font-size:10px!important}
+  .premium-footer .footer-column h3{font-size:12px!important}
+  .premium-footer .footer-column>a{font-size:14px!important}
+  .premium-footer .footer-contact small{font-size:10px!important}
+  .premium-footer .footer-bottom>p{font-size:10px!important}
+  .premium-footer .ideamos-credit,.premium-footer .ideamos-credit span,.premium-footer .ideamos-credit strong{font-size:10px!important;letter-spacing:.02em!important}
+}
+@media(max-width:380px){
+  .premium-footer .footer-bottom>.ideamos-credit,.premium-footer .footer-bottom>.ideamos-credit span,.premium-footer .footer-bottom>.ideamos-credit strong{font-size:10px!important;letter-spacing:0!important}
+}
