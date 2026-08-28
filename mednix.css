@@ -410,3 +410,44 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
   padding:11px!important;
   border-radius:50%!important
 }
+/* Keep Ideamos credit inside the footer grid */
+.premium-footer .footer-bottom>.ideamos-credit{
+  box-sizing:border-box!important;
+  display:inline-flex!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  height:34px!important;
+  min-height:34px!important;
+  justify-self:end!important;
+  align-items:center!important;
+  justify-content:flex-end!important
+}
+@media(max-width:800px){
+  .premium-footer .footer-bottom>.ideamos-credit{
+    grid-column:1!important;
+    grid-row:2!important;
+    width:auto!important;
+    max-width:100%!important;
+    justify-self:center!important;
+    justify-content:center!important
+  }
+}
+@media(max-width:380px){
+  .premium-footer .footer-bottom>.ideamos-credit{
+    gap:5px!important;
+    font-size:6px!important;
+    letter-spacing:.1em!important
+  }
+  .premium-footer .footer-bottom>.ideamos-credit span,
+  .premium-footer .footer-bottom>.ideamos-credit strong{
+    font-size:inherit!important;
+    letter-spacing:inherit!important
+  }
+  .premium-footer .footer-bottom>.ideamos-credit i{
+    flex-basis:22px!important;
+    width:22px!important;
+    height:22px!important;
+    margin-left:0!important
+  }
+}
