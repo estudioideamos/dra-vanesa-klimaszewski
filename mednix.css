@@ -629,25 +629,25 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 .site-header .brand small,
 .premium-footer .premium-brand .brand small{
   color:#344b45!important;
-  font-size:12px!important;
-  font-weight:800!important;
-  letter-spacing:.075em!important
+  font-size:9px!important;
+  font-weight:600!important;
+  letter-spacing:.07em!important
 }
 .premium-footer .premium-brand .brand small{
   color:#d4dfdc!important
 }
 .mobile-menu-brand small{
   color:#b8cbc5!important;
-  font-size:10px!important;
-  font-weight:800!important;
-  letter-spacing:.07em!important
+  font-size:8px!important;
+  font-weight:600!important;
+  letter-spacing:.06em!important
 }
 @media(max-width:800px){
   .site-header .brand small{
     color:#405852!important;
-    font-size:10px!important;
-    font-weight:800!important;
-    letter-spacing:.055em!important
+    font-size:8px!important;
+    font-weight:600!important;
+    letter-spacing:.05em!important
   }
 }
 /* Estado accesible del formulario seguro */
