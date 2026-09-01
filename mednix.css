@@ -622,8 +622,8 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
   .site-header .brand small{width:min(180px,calc(100vw - 165px));max-width:180px;font-size:10px!important;letter-spacing:.075em}
 }
 
-/* Stronger doctor name in brand lockups */
-.site-header .brand strong,.site-header .brand strong b{color:var(--ink)!important;font-weight:900!important}.premium-footer .premium-brand .brand strong,.premium-footer .premium-brand .brand strong b,.mobile-menu-brand strong{font-weight:900!important}
+/* Balanced doctor name in brand lockups */
+.site-header .brand strong,.site-header .brand strong b{color:var(--ink)!important;font-weight:600!important}.premium-footer .premium-brand .brand strong,.premium-footer .premium-brand .brand strong b,.mobile-menu-brand strong{font-weight:600!important}
 
 /* Final subtitle visibility adjustment */
 .site-header .brand small,

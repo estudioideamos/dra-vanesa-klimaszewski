@@ -1,0 +1,13 @@
+FORMULARIO PARA NUTHOST
+========================
+Destino: klivanedoc@gmail.com
+URL: https://formularios.doctoravanesaklima.com.ar/contacto.php
+
+1. Crear en cPanel el subdominio formularios.doctoravanesaklima.com.ar con raíz propia.
+2. Crear en Zone Editor un registro A: formularios -> 167.250.5.35.
+3. Subir contacto.php y .htaccess a la raíz del subdominio.
+4. Activar SSL.
+5. Abrir la URL. Debe responder: {"ok":true,"service":"formulario-contacto","status":"ready"}
+6. Enviar una prueba desde el sitio y confirmar Gmail y Spam.
+
+Protecciones: origen permitido, campo trampa, tiempo mínimo, máximo 3 envíos por IP cada 15 minutos, validación estricta, límites de longitud y filtro de enlaces. No se almacena el contenido de las consultas.
