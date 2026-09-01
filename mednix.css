@@ -659,3 +659,23 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
 .form-status a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .submit-button[disabled]{cursor:wait;opacity:.72}
 .honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
+/* Readable contact details in the mobile footer */
+@media(max-width:560px){
+  .premium-footer .footer-contact>a{
+    min-height:68px!important;
+    padding:12px 14px!important
+  }
+  .premium-footer .footer-contact a span{
+    color:#f2f7f5!important;
+    font-size:15px!important;
+    font-weight:600!important;
+    line-height:1.45!important
+  }
+  .premium-footer .footer-contact small{
+    margin-bottom:4px!important;
+    color:#aebfba!important;
+    font-size:9px!important;
+    font-weight:600!important;
+    line-height:1.35!important
+  }
+}
