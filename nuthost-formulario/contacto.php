@@ -2,6 +2,7 @@
 /* Formulario de doctoravanesaklima.com.ar
    Diseño y desarrollo: Estudio Ideamos — https://ideamos.com.ar/ */
 const TO='klivanedoc@gmail.com';
+const TO_RECIPES='pedidoreceta@gmail.com';
 const FROM='formularios@doctoravanesaklima.com.ar';
 $ORIGINS=array('https://doctoravanesaklima.com.ar','https://www.doctoravanesaklima.com.ar','https://estudioideamos.github.io');
 $MOTIVES=array('Medicina familiar','Diabetes','PAMI','Videoconsulta','Domicilio en Tigre','Recetas particulares','Otra consulta');
@@ -39,8 +40,9 @@ if(count($links[0])>2||preg_match('/(.)\1{12,}/u',$spam))$errors[]='El mensaje f
 if($errors!==[])reply(422,['ok'=>false,'message'=>implode(' ',$errors)]);
 $ip=isset($_SERVER['REMOTE_ADDR'])?$_SERVER['REMOTE_ADDR']:'sin-ip';$file=sys_get_temp_dir().DIRECTORY_SEPARATOR.'vk-form-'.hash('sha256',$ip).'.json';$now=time();$tries=[];$handle=@fopen($file,'c+');
 if($handle!==false){if(flock($handle,LOCK_EX)){$saved=stream_get_contents($handle);$decoded=json_decode($saved?:'[]',true);if(is_array($decoded))$tries=array_values(array_filter($decoded,function($stamp)use($now){return is_int($stamp)&&$stamp>$now-900;}));if(count($tries)>=3){flock($handle,LOCK_UN);fclose($handle);reply(429,['ok'=>false,'message'=>'Recibimos varios intentos. Esperá unos minutos antes de volver a enviar.']);}$tries[]=$now;rewind($handle);ftruncate($handle,0);fwrite($handle,json_encode($tries));fflush($handle);flock($handle,LOCK_UN);}fclose($handle);}
+$recipient=$motive==='Recetas particulares'?TO_RECIPES:TO;
 $subject='=?UTF-8?B?'.base64_encode('Consulta web: '.$motive.' — '.$name).'?=';
 $body=implode("\r\n",['Nueva consulta desde doctoravanesaklima.com.ar','','Nombre: '.$name,'Email: '.$email,'Teléfono: '.$phone,'Motivo: '.$motive,'','Mensaje:',$message,'','Enviado: '.date('Y-m-d H:i:s T')]);
 $headers=implode("\r\n",['From: Formulario web <'.FROM.'>','Reply-To: '.$email,'MIME-Version: 1.0','Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: 8bit','Auto-Submitted: auto-generated','X-Mailer: Estudio Ideamos Formulario Web']);
-if(!@mail(TO,$subject,$body,$headers))reply(500,['ok'=>false,'message'=>'No pudimos enviar la consulta. Intentá nuevamente o escribinos por WhatsApp.']);
+if(!@mail($recipient,$subject,$body,$headers))reply(500,['ok'=>false,'message'=>'No pudimos enviar la consulta. Intentá nuevamente o escribinos por WhatsApp.']);
 reply(200,['ok'=>true,'message'=>'Tu consulta fue enviada correctamente. Te responderemos a la brevedad.']);

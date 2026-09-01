@@ -49,7 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const buildEmailFallback = data => {
       const subject = `Consulta web - ${data.get("Motivo")} - ${data.get("Nombre")}`;
       const body = ["Hola Dra. Vanesa, quisiera realizar una consulta.","",`Nombre: ${data.get("Nombre")}`,`Email: ${data.get("email")}`,`Teléfono: ${data.get("Teléfono")}`,`Motivo: ${data.get("Motivo")}`,"",`Mensaje: ${data.get("Mensaje")}`].join("\n");
-      return `mailto:klivanedoc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const recipient = data.get("Motivo") === "Recetas particulares"
+        ? "pedidoreceta@gmail.com"
+        : "klivanedoc@gmail.com";
+      return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };
     const showStatus = (message, type, fallbackUrl = "") => {
       if (!status) return;

@@ -1,6 +1,8 @@
 FORMULARIO PARA NUTHOST
 ========================
-Destino: klivanedoc@gmail.com
+Destinos:
+- Recetas particulares: pedidoreceta@gmail.com
+- Resto de las consultas: klivanedoc@gmail.com
 URL: https://formularios.doctoravanesaklima.com.ar/contacto.php
 
 1. Crear en cPanel el subdominio formularios.doctoravanesaklima.com.ar con raíz propia.
