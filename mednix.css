@@ -650,3 +650,12 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
     letter-spacing:.055em!important
   }
 }
+/* Estado accesible del formulario seguro */
+.form-status{min-height:1.55em;margin:12px 0 0;text-align:center;font-size:12px;font-weight:700;line-height:1.5;color:#52655f}
+.form-status:empty{display:none}
+.form-status.is-loading{color:#38564f}
+.form-status.is-success{color:#17673f}
+.form-status.is-error{color:#9a302b}
+.form-status a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.submit-button[disabled]{cursor:wait;opacity:.72}
+.honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}

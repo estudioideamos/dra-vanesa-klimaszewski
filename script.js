@@ -41,11 +41,62 @@ document.addEventListener("DOMContentLoaded", () => {
     hero.addEventListener("pointerleave", () => document.querySelectorAll("[data-float]").forEach(item => item.style.translate="0 0"));
   }
   const form = document.querySelector("#contact-form");
-  form?.addEventListener("submit", event => {
-    event.preventDefault(); if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const subject = `Consulta web - ${data.get("Motivo")} - ${data.get("Nombre")}`;
-    const body = ["Hola Dra. Vanesa, quisiera realizar una consulta.","",`Nombre: ${data.get("Nombre")}`,`Email: ${data.get("email")}`,`Teléfono: ${data.get("Teléfono")}`,`Motivo: ${data.get("Motivo")}`,"",`Mensaje: ${data.get("Mensaje")}`].join("\n");
-    window.location.href = `mailto:klivanedoc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+  if (form) {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const status = form.querySelector("#form-status");
+    const startedAt = form.querySelector('input[name="form_started_at"]');
+    const resetStartedAt = () => { if (startedAt) startedAt.value = String(Date.now()); };
+    const buildEmailFallback = data => {
+      const subject = `Consulta web - ${data.get("Motivo")} - ${data.get("Nombre")}`;
+      const body = ["Hola Dra. Vanesa, quisiera realizar una consulta.","",`Nombre: ${data.get("Nombre")}`,`Email: ${data.get("email")}`,`Teléfono: ${data.get("Teléfono")}`,`Motivo: ${data.get("Motivo")}`,"",`Mensaje: ${data.get("Mensaje")}`].join("\n");
+      return `mailto:klivanedoc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+    const showStatus = (message, type, fallbackUrl = "") => {
+      if (!status) return;
+      status.className = `form-status ${type ? `is-${type}` : ""}`;
+      status.textContent = message;
+      if (fallbackUrl) {
+        const link = document.createElement("a");
+        link.href = fallbackUrl;
+        link.textContent = "Enviar por email";
+        status.append(" ", link);
+      }
+    };
+    resetStartedAt();
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const fallbackUrl = buildEmailFallback(data);
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) { window.location.href = fallbackUrl; return; }
+      submitButton?.setAttribute("aria-busy", "true");
+      if (submitButton) submitButton.disabled = true;
+      showStatus("Enviando tu consulta…", "loading");
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 12000);
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+          signal: controller.signal
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.message || "No se pudo enviar la consulta.");
+        form.reset();
+        resetStartedAt();
+        showStatus(result.message || "Tu consulta fue enviada correctamente.", "success");
+      } catch (error) {
+        const message = error instanceof Error && error.message !== "Failed to fetch"
+          ? error.message
+          : "No pudimos enviar la consulta automáticamente.";
+        showStatus(message, "error", fallbackUrl);
+      } finally {
+        window.clearTimeout(timeout);
+        submitButton?.removeAttribute("aria-busy");
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
 });
