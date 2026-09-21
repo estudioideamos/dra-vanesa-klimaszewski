@@ -29,6 +29,93 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 126);
   updateHeader(); window.addEventListener("scroll", updateHeader, { passive: true });
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const initSmoothWheel = () => {
+    if (reducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+    let currentY = window.scrollY;
+    let targetY = currentY;
+    let frameId = 0;
+    let isAnimating = false;
+
+    const maxScrollY = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    const stopAnimation = () => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      frameId = 0;
+      isAnimating = false;
+      currentY = window.scrollY;
+      targetY = currentY;
+    };
+
+    const canScrollInside = (target, deltaY) => {
+      let element = target instanceof Element ? target : null;
+      while (element && element !== document.body) {
+        const { overflowY } = window.getComputedStyle(element);
+        const isScrollable = /auto|scroll/.test(overflowY) && element.scrollHeight > element.clientHeight + 1;
+        if (isScrollable) {
+          const canMoveUp = deltaY < 0 && element.scrollTop > 0;
+          const canMoveDown = deltaY > 0 && element.scrollTop + element.clientHeight < element.scrollHeight - 1;
+          if (canMoveUp || canMoveDown) return true;
+        }
+        element = element.parentElement;
+      }
+      return false;
+    };
+
+    const animateScroll = () => {
+      const distance = targetY - currentY;
+      if (Math.abs(distance) < 0.45) {
+        currentY = targetY;
+        window.scrollTo(0, currentY);
+        frameId = 0;
+        isAnimating = false;
+        return;
+      }
+
+      currentY += distance * 0.085;
+      window.scrollTo(0, currentY);
+      frameId = window.requestAnimationFrame(animateScroll);
+    };
+
+    window.addEventListener("wheel", event => {
+      if (
+        event.defaultPrevented ||
+        event.ctrlKey ||
+        document.body.classList.contains("menu-open") ||
+        Math.abs(event.deltaX) > Math.abs(event.deltaY) ||
+        canScrollInside(event.target, event.deltaY)
+      ) return;
+
+      event.preventDefault();
+      if (!isAnimating) {
+        currentY = window.scrollY;
+        targetY = currentY;
+      }
+
+      const deltaUnit = event.deltaMode === WheelEvent.DOM_DELTA_LINE
+        ? 18
+        : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+          ? window.innerHeight
+          : 1;
+      const normalizedDelta = clamp(event.deltaY * deltaUnit, -180, 180);
+      targetY = clamp(targetY + normalizedDelta * 0.62, 0, maxScrollY());
+      isAnimating = true;
+      if (!frameId) frameId = window.requestAnimationFrame(animateScroll);
+    }, { passive: false });
+
+    window.addEventListener("resize", () => {
+      targetY = clamp(targetY, 0, maxScrollY());
+    }, { passive: true });
+    window.addEventListener("pointerdown", stopAnimation, { passive: true });
+    window.addEventListener("hashchange", stopAnimation);
+    document.addEventListener("keydown", event => {
+      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) stopAnimation();
+    });
+  };
+
+  initSmoothWheel();
   if (!reducedMotion && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); } }), { threshold: .1, rootMargin: "0px 0px -30px" });
     document.querySelectorAll("[data-reveal]").forEach(element => observer.observe(element));
