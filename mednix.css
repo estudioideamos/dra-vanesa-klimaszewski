@@ -729,8 +729,8 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
   box-shadow:0 0 0 4px rgba(200,245,109,.07);
 }
 .premium-footer .footer-bottom>.ideamos-credit .ideamos-credit-copy{
-  color:rgba(220,231,228,.58)!important;
-  font-size:8px!important;
+  color:#aebfba!important;
+  font-size:11px!important;
   font-weight:500!important;
   line-height:1.2!important;
   letter-spacing:.035em!important;
@@ -760,6 +760,6 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
     gap:8px!important;
     justify-content:center!important;
   }
-  .premium-footer .footer-bottom>.ideamos-credit .ideamos-credit-copy{font-size:7px!important}
+  .premium-footer .footer-bottom>.ideamos-credit .ideamos-credit-copy{font-size:10px!important}
   .premium-footer .footer-bottom>.ideamos-credit img{width:102px!important}
 }
