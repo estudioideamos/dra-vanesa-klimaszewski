@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let targetY = currentY;
     let frameId = 0;
     let isAnimating = false;
+    let previousFrameTime = 0;
 
     const maxScrollY = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
@@ -45,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (frameId) window.cancelAnimationFrame(frameId);
       frameId = 0;
       isAnimating = false;
+      previousFrameTime = 0;
+      document.documentElement.style.removeProperty("scroll-behavior");
       currentY = window.scrollY;
       targetY = currentY;
     };
@@ -64,17 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     };
 
-    const animateScroll = () => {
+    const animateScroll = timestamp => {
       const distance = targetY - currentY;
       if (Math.abs(distance) < 0.45) {
         currentY = targetY;
         window.scrollTo(0, currentY);
         frameId = 0;
         isAnimating = false;
+        previousFrameTime = 0;
+        document.documentElement.style.removeProperty("scroll-behavior");
         return;
       }
 
-      currentY += distance * 0.085;
+      const elapsed = previousFrameTime ? Math.min(timestamp - previousFrameTime, 34) : 16.67;
+      previousFrameTime = timestamp;
+      const easing = 1 - Math.exp(-elapsed / 90);
+      currentY += distance * easing;
       window.scrollTo(0, currentY);
       frameId = window.requestAnimationFrame(animateScroll);
     };
@@ -89,9 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ) return;
 
       event.preventDefault();
+      document.documentElement.style.setProperty("scroll-behavior", "auto");
       if (!isAnimating) {
         currentY = window.scrollY;
         targetY = currentY;
+        previousFrameTime = 0;
       }
 
       const deltaUnit = event.deltaMode === WheelEvent.DOM_DELTA_LINE
