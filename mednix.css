@@ -679,3 +679,33 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
     line-height:1.35!important
   }
 }
+
+/* Official Estudio Ideamos logo credit */
+.premium-footer .footer-bottom>.ideamos-credit{
+  width:152px!important;
+  height:auto!important;
+  min-height:38px!important;
+  justify-content:center!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  opacity:.88;
+  transition:opacity .3s ease,transform .3s ease!important;
+}
+.premium-footer .footer-bottom>.ideamos-credit img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.premium-footer .footer-bottom>.ideamos-credit:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+.premium-footer .footer-bottom>.ideamos-credit:focus-visible{
+  outline:2px solid var(--lime);
+  outline-offset:6px;
+}
+@media(max-width:560px){
+  .premium-footer .footer-bottom>.ideamos-credit{width:144px!important}
+}
