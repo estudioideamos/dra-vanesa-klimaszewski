@@ -30,6 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
   updateHeader(); window.addEventListener("scroll", updateHeader, { passive: true });
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const whatsappFloat = document.querySelector(".whatsapp-float");
+  const siteFooter = document.querySelector(".premium-footer");
+  if (whatsappFloat && siteFooter && "IntersectionObserver" in window) {
+    const footerObserver = new IntersectionObserver(([entry]) => {
+      whatsappFloat.classList.toggle("is-hidden-at-footer", entry.isIntersecting);
+    }, { threshold: 0 });
+    footerObserver.observe(siteFooter);
+  }
+
   const initSmoothWheel = () => {
     if (reducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
 
