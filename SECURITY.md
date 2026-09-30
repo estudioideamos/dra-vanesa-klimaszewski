@@ -32,7 +32,7 @@ Se verifican CSP, recursos, campos inválidos, origen, destinatarios, límites y
 GitHub Pages no permite definir cabeceras HTTP arbitrarias. La CSP en meta no impone frame-ancestors ni HSTS. Para esas cabeceras hace falta una capa HTTP compatible. HTTPS está activado en Pages.
 El receptor PHP incluye cabeceras propias y .htaccess complementario.
 
-El receptor debe instalarse separadamente en Nuthost. El acceso SSH con las claves locales fue rechazado; no se verificó la versión PHP instalada ni se cambió el servidor.
+El receptor fue instalado por SSH en Nuthost el 2026-09-30. Respaldo privado: /home8/doctoravanesakli/.vanesa-maintenance/security-20260930/backup/. El vhost usa ea-php83 y su ejecutable informa PHP 8.3.33; el PHP predeterminado de terminal es 8.2.33. El hosting ofrece hasta PHP 8.3 en esta cuenta. PHP 8.4/8.5 requiere gestión con Nuthost.
 Usar PHP soportado con sus parches: https://www.php.net/supported-versions.php.
 Confirmar ambos destinatarios después del despliegue y la entrega a Gmail. Mantener SPF, DKIM y DMARC con el proveedor.
 Revisar periódicamente parches y registros. Las dependencias del starter local no versionado no forman parte de esta publicación ni fueron actualizadas.
@@ -42,3 +42,4 @@ Revisar periódicamente parches y registros. Las dependencias del starter local 
 El renderizador conserva los 33 iconos utilizados y reduce su JavaScript de 357796 a aproximadamente 13600 bytes. Se conservan carga diferida de fotos secundarias, dimensiones de imágenes y prioridad de la foto principal.
 Se elimina una importación de Google Fonts ya bloqueada por la CSP anterior, conservando las fuentes de respaldo que el navegador venía mostrando.
 No se afirma una puntuación Lighthouse ni métricas Core Web Vitals de usuarios reales.
+Verificación pública del receptor: GET 200, preflight 204, origen rechazado 403, tiempo inválido 400, trampa 200 sin correo, notas de instalación 403, listado de directorio 403 y HTTP redirige a HTTPS. Validado sintácticamente y con envío simulado bajo PHP 8.3 del hosting. No se enviaron correos de prueba reales ni se confirmó recepción en Gmail.
