@@ -763,3 +763,12 @@ footer{background:#0e2824;color:#dce7e4;padding:78px 0 24px}.footer-main{display
   .premium-footer .footer-bottom>.ideamos-credit .ideamos-credit-copy{font-size:10px!important}
   .premium-footer .footer-bottom>.ideamos-credit img{width:102px!important}
 }
+
+/* Center the mobile hero without changing desktop or form layouts. */
+@media (max-width: 767px) {
+  .hero-copy{text-align:center;margin-inline:auto}
+  .hero-copy h1,.hero-copy>p{margin-inline:auto}
+  .hero-copy .kicker,.hero-actions,.hero-copy .trust-row{justify-content:center}
+  .hero-actions a{justify-content:center;min-height:44px}
+
+}
