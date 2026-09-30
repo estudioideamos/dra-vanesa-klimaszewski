@@ -79,3 +79,8 @@ Diseño y desarrollo web por [Estudio Ideamos](https://ideamos.com.ar/).
 ## Aviso de salud
 
 El contenido de los artículos es informativo y no reemplaza una evaluación médica. El sitio no ofrece atención de emergencias.
+
+## Revisión de seguridad y publicación
+
+Ver [SECURITY.md](SECURITY.md) para alcance, pruebas y límites de la revisión OWASP.
+La publicación usa GitHub Actions con una lista explícita de archivos públicos. Los cambios de nuthost-formulario requieren instalación separada en Nuthost.

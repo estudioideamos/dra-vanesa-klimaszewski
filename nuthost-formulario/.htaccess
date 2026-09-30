@@ -10,3 +10,8 @@ Header always set Content-Security-Policy "default-src 'none'; frame-ancestors '
 <FilesMatch "^\.">
 Require all denied
 </FilesMatch>
+
+# Do not serve setup notes, logs or backup files.
+<FilesMatch "(?i)\.(?:txt|log|ini|bak|old|zip|sql|env)$">
+Require all denied
+</FilesMatch>

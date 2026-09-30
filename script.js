@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetStartedAt();
     form.addEventListener("submit", async event => {
       event.preventDefault();
-      if (!form.reportValidity()) return;
+      if (submitButton?.disabled || !form.reportValidity()) return;
       const data = new FormData(form);
       const fallbackUrl = buildEmailFallback(data);
       const endpoint = form.dataset.endpoint;
@@ -188,6 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const response = await fetch(endpoint, {
           method: "POST",
           body: data,
+          credentials: "omit",
+          redirect: "error",
+          cache: "no-store",
           headers: { Accept: "application/json" },
           signal: controller.signal
         });
